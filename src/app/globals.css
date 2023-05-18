@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.custom-image {
+  background-image: url('https://cdn.openart.ai/stable_diffusion/132ce2ff3bb962fa647505b1a0c52dd5cc996fe7_2000x2000.webp');
+}
