@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+h1 {
+  font-size: 2.25rem /* 36px */;
+  line-height: 2.5rem /* 40px */;
+  font-weight: 700;
+  text-align: center;
+  padding: 2rem;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -27,5 +35,5 @@ body {
 }
 
 .custom-image {
-  background-image: url('https://cdn.openart.ai/stable_diffusion/132ce2ff3bb962fa647505b1a0c52dd5cc996fe7_2000x2000.webp');
+  background-image: url("https://cdn.openart.ai/stable_diffusion/132ce2ff3bb962fa647505b1a0c52dd5cc996fe7_2000x2000.webp");
 }

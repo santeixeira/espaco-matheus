@@ -39,7 +39,7 @@ const Navbar = () => {
         </Link>
         <ul style={{ textColor: `${textColor}` }} className="hidden sm:flex">
           <li className="p-4">
-            <Link href={"/pagina+inicial"}>Página Inicial</Link>
+            <Link href={"/"}>Página Inicial</Link>
           </li>
           <li className="p-4">
             <Link href={"/sobre+mim"}>Sobre Mim</Link>

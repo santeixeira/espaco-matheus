@@ -9,6 +9,7 @@ const Hero = ({ heading, message }) => {
       <div className="p-5 text-white z-[2] mt-[-10rem]">
         <h2 className="text-5xl font-bold">{heading}</h2>
         <p className="text-xl py-5">{message}</p>
+        <Button message={"Descubra mais sobre mim"}/>
       </div>
     </div>
   );

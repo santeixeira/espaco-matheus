@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
 
-export const Button = () => {
+export const Button = ({ message, alignment }) => {
   return (
-    <button className="px-8 py-2 border items-center">Book</button>
-  )
-}
+    <button
+      style={{ alignContent: alignment }}
+      className="inline-block my-5 px-8 py-2 border"
+    >
+      {message}
+    </button>
+  );
+};
