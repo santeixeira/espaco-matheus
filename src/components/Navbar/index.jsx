@@ -28,7 +28,7 @@ const Navbar = () => {
       style={{ backgroundColor: `${color}` }}
       className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
     >
-      <div className="max-w-[1644px] m-auto flex justify-between items-center p-4 text-white">
+      <div className="max-w-[1644px] m-auto flex justify-between items-center p-4 text-white h-24">
         <Link href="/">
           <h1
             style={{ textColor: `${textColor}` }}
@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link href={"/"}>Página Inicial</Link>
           </li>
           <li className="p-4">
-            <Link href={"/sobre+mim"}>Sobre Mim</Link>
+            <Link href={"/sobre"}>Sobre Mim</Link>
           </li>
           <li className="p-4">
             <Link href={"/projetos"}>Projetos</Link>

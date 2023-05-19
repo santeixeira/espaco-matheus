@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "../Button";
+import Link from "next/link";
 
 const Hero = ({ heading, message }) => {
   return (
@@ -9,7 +10,9 @@ const Hero = ({ heading, message }) => {
       <div className="p-5 text-white z-[2] mt-[-10rem]">
         <h2 className="text-5xl font-bold">{heading}</h2>
         <p className="text-xl py-5">{message}</p>
-        <Button message={"Descubra mais sobre mim"}/>
+        <Link href={"/sobre"}>
+          <Button message={"Descubra mais sobre mim"} />
+        </Link>
       </div>
     </div>
   );
