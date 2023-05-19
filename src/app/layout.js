@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Vollkorn } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const vollkorn = Vollkorn({ subsets: ["latin"] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={vollkorn.className}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

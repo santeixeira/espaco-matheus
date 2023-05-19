@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const Instagram = () => {
   return (
-    <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-white via-[#C2B6A9] to-[#DEC8A6] text-black h-screen">
-      <div className="max-w-[1240px] mx-8 text-center py-4">
+    <div className="mx-auto bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-white via-[#C2B6A9] to-[#DEC8A6] text-black h-screen">
+      <div className="max-w-[1240px] mx-auto text-center py-4">
         <h1>Instagram</h1>
         <p className="pb-4 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
