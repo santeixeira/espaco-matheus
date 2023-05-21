@@ -16,7 +16,7 @@ const Instagram = () => {
           veritatis eligendi blanditiis saepe nulla praesentium harum voluptas
           sunt omnis tenetur!
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4">
+        <div className="grid grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-2 p-4">
           {InstagramData.map((img, index) => {
             return <InstagramImg socialImg={img.image} key={index} />;
           })}

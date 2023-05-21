@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SliderData from "@/data/SliderData.js";
 import { Button } from "@/components/Button";
 import Link from "next/link";

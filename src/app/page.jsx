@@ -1,6 +1,7 @@
 "use client";
 import Hero from "@/components/Hero";
-import Gallery from "@/pages/Galeria";
+import News from "@/pages/Work";
+import Gallery from "@/pages/Gallery";
 import Instagram from "@/pages/Instagram";
 
 export default function Home() {
@@ -13,6 +14,9 @@ export default function Home() {
         }
       />
       <Gallery />
+      <div className="bg-fixed">
+        <News />
+      </div>
       <Instagram />
     </div>
   );
