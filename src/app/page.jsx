@@ -6,7 +6,7 @@ import Instagram from "@/pages/Instagram";
 
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <Hero
         heading={"Espaço Matheus Carneiro"}
         message={

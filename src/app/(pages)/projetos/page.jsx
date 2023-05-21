@@ -2,13 +2,45 @@
 import { Button } from "@/components/Button";
 import Slider from "@/components/Slider";
 import SliderData from "@/components/Slider/SliderData";
+import RangeSlider from "@/components/RangeSlider";
 import React, { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
+import Modal from "@/components/Modal";
+import UploadButton from "@/components/Upload";
 
 const ProjetoUpload = () => {
-  const [] = useState();
+  const [modal, setModal] = useState(false);
   return (
-    <div id="contatos" className="max-w-[1080px] mx-auto h-screen m-[15em]">
+    <div id="projetos" className="max-w-[1080px] mx-auto h-screen m-[15em]">
+      <div className={"justify-center items-center mt-[50%] hidden"}>
+        <Modal title={"Modal"}>
+          <div class="flex items-center justify-start">
+            <div class="mx-auto w-full max-w-lg">
+              <form action="https://api.web3forms.com/submit" class="mt-10">
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="YOUR_ACCESS_KEY_HERE"
+                />
+                <div class="grid gap-6 sm:grid-cols-2">
+                  <div class="relative z-0 col-span-2">
+                    <textarea
+                      name="message"
+                      rows="5"
+                      class="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    ></textarea>
+                    <label class="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
+                      Descreva o sentimento da fotografia!
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <UploadButton />
+        </Modal>
+      </div>
       <div className="p-5">
         <h1 className="text-left text-5xl py-4 px-4">Peformance.</h1>
         <p className="text-xl font-thin text-justify px-4 pb-4">
@@ -19,12 +51,18 @@ const ProjetoUpload = () => {
         </p>
         <div className="flex items-center justify-center">
           <Button
-            icon={<FaPlus/>}
+            icon={<FaPlus />}
             message={"Adicionar"}
             alignment={"center"}
           />
         </div>
-        <Slider slides={SliderData} />
+        <div>
+          <Slider slides={SliderData} />
+        </div>
+
+        <div className="py-4">
+          <RangeSlider />
+        </div>
       </div>
     </div>
   );

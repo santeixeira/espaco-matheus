@@ -21,8 +21,10 @@ const Slider = ({ slides }) => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    setTimeout(() => {nextSlide()}, 3000);
-  }, []);
+    setTimeout(() => {
+      nextSlide();
+    }, 5000);
+  });
 
   return (
     <div className="relative flex justify-center m-4">

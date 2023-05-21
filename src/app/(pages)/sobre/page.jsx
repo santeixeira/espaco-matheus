@@ -1,12 +1,13 @@
 import Video from "@/components/Video";
-import Instagram from "@/pages/Instagram";
+import About from "@/pages/About";
+import Honors from "@/pages/About/Honors";
 import React from "react";
 
 const page = () => {
   return (
     <div>
       <Video />
-      <Instagram />
+      <About />
     </div>
   );
 };

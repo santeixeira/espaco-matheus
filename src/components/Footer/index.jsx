@@ -4,13 +4,12 @@ import Logo from "../Logo";
 const Footer = () => {
   return (
     <footer class="bg-black">
-
       <div class=" max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
         <nav class="flex flex-wrap justify-center -mx-5 -my-2">
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Sobre
             </a>
@@ -18,7 +17,7 @@ const Footer = () => {
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Projetos
             </a>
@@ -26,7 +25,7 @@ const Footer = () => {
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Notícias
             </a>
@@ -34,7 +33,7 @@ const Footer = () => {
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Políticas
             </a>
@@ -42,7 +41,7 @@ const Footer = () => {
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Contatos
             </a>
@@ -50,14 +49,14 @@ const Footer = () => {
           <div class="px-5 py-2">
             <a
               href="#"
-              class="text-base leading-6 text-white hover:text-gray-900"
+              class="text-base leading-6 text-white hover:text-emerald-400"
             >
               Desenvolvedor
             </a>
           </div>
         </nav>
         <div class="flex justify-center mt-8 space-x-6">
-          <a href="#" class="text-white hover:text-gray-500">
+          <a href="#" class="text-white hover:text-gray-200">
             <span class="sr-only">Facebook</span>
             <svg
               class="w-6 h-6"
@@ -72,7 +71,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#" class="text-white hover:text-gray-500">
+          <a href="#" class="text-white hover:text-gray-200">
             <span class="sr-only">Instagram</span>
             <svg
               class="w-6 h-6"
@@ -87,7 +86,7 @@ const Footer = () => {
               ></path>
             </svg>
           </a>
-          <a href="#" class="text-white hover:text-gray-500">
+          <a href="#" class="text-white hover:text-gray-200">
             <span class="sr-only">Twitter</span>
             <svg
               class="w-6 h-6"

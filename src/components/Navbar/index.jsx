@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Logo from "../Logo";
+import navItems from "./navItems";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -26,7 +27,7 @@ const Navbar = () => {
   return (
     <nav
       style={{ backgroundColor: `${color}` }}
-      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
+      className="fixed left-0 top-0 w-full z-30 ease-in duration-300"
     >
       <div className="max-w-[1644px] m-auto flex justify-between items-center p-4 text-white h-24">
         <Link href="/">
@@ -38,18 +39,13 @@ const Navbar = () => {
           </h1>
         </Link>
         <ul style={{ textColor: `${textColor}` }} className="hidden sm:flex">
-          <li className="p-4">
-            <Link href={"/"}>Página Inicial</Link>
-          </li>
-          <li className="p-4">
-            <Link href={"/sobre"}>Sobre Mim</Link>
-          </li>
-          <li className="p-4">
-            <Link href={"/projetos"}>Projetos</Link>
-          </li>
-          <li className="p-4">
-            <Link href={"/contato"}>Contato</Link>
-          </li>
+          {navItems.map((value, index) => {
+            return (
+              <li className="p-4" key={index}>
+                <Link href={value.link}>{value.item}</Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Mobile Button*/}
