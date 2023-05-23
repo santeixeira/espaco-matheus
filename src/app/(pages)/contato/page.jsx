@@ -1,69 +1,39 @@
 "use client";
 import React, { useState } from "react";
+import Contact from "@/pages/Contact";
+import { FaFacebookMessenger, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
-const Contact = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setName("");
-    setEmail("");
-    setMessage("");
-  };
-
+const Contato = () => {
   return (
-    <div className="h-screen ">
-      <div id="contatos" className="max-w-[1080px] mx-auto h-screen my-[15em]">
-        <h1 className="text-left text-5xl">Fale Comigo.</h1>
-        <p className="text-xl font-thin my-4 text-justify px-8">
-        Adoraria trabalhar com você, aqui está os meios de entrar em contato!
-        </p>
-        <form
-          onSubmit={handleSubmit}
-          className="flex justify-start items-center"
-        >
-          <div className="block items-center">
-            <label className="block">
-              Name:
-              <input
-                type="text"
-                className="text-black block"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </label>
+    <div className="w-[960px] mx-auto">
+      <div className="h-full flex ">
+        <div id="contatos" className="mt-[15em] mb-[3em] border-white">
+          <h1 className="text-left text-5xl">Fale Comigo.</h1>
+          <p className="text-xl font-thin my-4 text-justify px-8">
+            Adoraria trabalhar com você, aqui está os meios de entrar em
+            contato!
+          </p>
+        </div>
+      </div>
+      <div className="flex justify-center columns-2 gap-4 mx-auto my-4">
+        <div className="w-1/4">
+          <h1 className="text-2xl">Redes Sociais</h1>
+          <div className="flex items-center justify-center mx-auto">
+            <div className="grid grid-cols-4 mx-auto gap-4">
+              <FaInstagram size={40} />
+              <FaTwitter size={40} />
+              <FaFacebookMessenger size={40} />
+              <FaWhatsapp size={40} />
+            </div>
           </div>
-
-          <div className="block items-center">
-            <label className="block">
-              Email:
-              <input
-                className="block"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </label>
-          </div>
-
-          <div className="block items-center">
-            <label className="block">
-              Message:
-              <textarea
-                className="block"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-            </label>
-          </div>
-
-          <button type="submit">Submit</button>
-        </form>
+        </div>
+        <div className="w-3/4">
+          <h1 className="text-2xl">Caixa Postal</h1>
+          <Contact />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default Contato;

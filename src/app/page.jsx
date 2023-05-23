@@ -3,10 +3,11 @@ import Hero from "@/components/Hero";
 import News from "@/pages/Work";
 import Gallery from "@/pages/Gallery";
 import Instagram from "@/pages/Instagram";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Hero
         heading={"Espaço Matheus Carneiro"}
         message={

@@ -9,7 +9,7 @@ import Card from "@/components/Card";
 const News = () => {
   const [current, setCurrent] = useState(0);
   return (
-    <div id="test" className="max-w-[960px] mx-auto h-screen py-8">
+    <div id="test" className="max-w-[960px] mx-auto lg:h-screen py-8">
       <h1 className="">Últimos Trabalhos</h1>
       <p className="text-xl font-thin my-10 text-justify m-4 ">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, quos
@@ -17,7 +17,7 @@ const News = () => {
         optio quo totam accusamus nemo ducimus repellat enim ratione molestiae
         deserunt!
       </p>
-      <div className="flex justify-between gap-6 mx-4">
+      <div className="lg:flex justify-between gap-6 mx-4">
         <div className="items-center">
           <Image
             src={WorkData[0].image}

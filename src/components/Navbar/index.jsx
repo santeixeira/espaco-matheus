@@ -33,7 +33,7 @@ const Navbar = () => {
         <Link href="/">
           <h1
             style={{ textColor: `${textColor}` }}
-            className="font-bold text-4xl"
+            className="font-bold text-4xl hover:scale-110 ease-in duration-150"
           >
             <Logo />
           </h1>
@@ -41,7 +41,7 @@ const Navbar = () => {
         <ul style={{ textColor: `${textColor}` }} className="hidden sm:flex">
           {navItems.map((value, index) => {
             return (
-              <li className="p-4" key={index}>
+              <li className="p-4 hover:scale-110 hover:border-bottom ease-in duration-150" key={index}>
                 <Link href={value.link}>{value.item}</Link>
               </li>
             );

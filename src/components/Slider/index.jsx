@@ -49,7 +49,7 @@ const Slider = ({ slides }) => {
                 alt=""
                 width={1440}
                 height={800}
-                style={{ objectFit: "cover", maxHeight: 500 }}
+                style={{ objectFit: "cover", maxHeight: 500, borderRadius: 4 }}
               />
             )}
             <FaArrowCircleRight

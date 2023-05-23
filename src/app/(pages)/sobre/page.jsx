@@ -7,7 +7,9 @@ const page = () => {
   return (
     <div>
       <Video />
-      <About />
+      <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-white via-[#C2B6A9] to-[#DEC8A6]">
+        <About />
+      </div>
     </div>
   );
 };

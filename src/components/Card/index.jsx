@@ -5,7 +5,7 @@ import { BiCalendar } from "react-icons/bi";
 const Card = ({ image, description, date }) => {
   return (
     <div
-      className="bg-gradient-to-r from-neutral-300 to-stone-400 flex justify-between items-center gap-4 w-[500px] text-white pr-2 mb-4 drop-shadow"
+      className="bg-gradient-to-r from-neutral-600 to-neutral-800 flex justify-between items-center gap-4 w-[500px] text-white pr-2 mb-4 drop-shadow"
       style={{ borderRadius: 6 }}
     >
       <Image
@@ -23,11 +23,11 @@ const Card = ({ image, description, date }) => {
       />
       <div className="inline-block mx-4">
         <Link href={"/#"}>
-          <h3 className="text-thin text-justify mb-4 text-black hover:font-medium  ease-in duration-100">
+          <h3 className="text-thin text-justify mb-4 hover:font-medium  ease-in duration-100">
             {description}
           </h3>
         </Link>
-        <div className="flex gap-1 items-center text-gray-600">
+        <div className="flex gap-1 items-center text-gray-300">
           <BiCalendar />
           {date}
         </div>

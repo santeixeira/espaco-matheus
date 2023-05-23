@@ -69,31 +69,50 @@ video {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-
 @keyframes from0to360 {
-  from{transform:rotate(0);}
-  to{transform:rotate(360deg);}
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes from360to0 {
-  from{transform:rotate(360deg);}
-  to{transform:rotate(0deg);}
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 @keyframes scaleUp {
-  from{transform:scale(0.8);}
-  to{transform:scale(1);}
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 @keyframes scaleDown {
-  from{transform:scale(1);}
-  to{transform:scale(0.8);}
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
 }
 
 @keyframes from360to0scaled {
-  from{transform:rotate(360deg) scale(1.1); }
-  to{transform:rotate(0deg) scale(0.25);}
+  from {
+    transform: rotate(360deg) scale(1.1);
+  }
+  to {
+    transform: rotate(0deg) scale(0.25);
+  }
 }
 
 .blob-svg {
-will-change: transform;
+  will-change: transform;
 }
 
 .circle1 {
@@ -221,4 +240,10 @@ will-change: transform;
     rgba(64, 76, 255, 1) 0%,
     rgba(174, 63, 255, 1) 100%
   );
+}
+
+li :hover {
+  border-bottom: #fff 2px solid;
+  transition: ease-in;
+  transition-duration: 100;
 }
