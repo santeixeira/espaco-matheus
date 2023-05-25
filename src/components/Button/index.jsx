@@ -10,6 +10,7 @@ export const Button = ({
 }) => {
   return (
     <button
+      type="submit"
       style={{
         alignContent: alignment,
         borderColor: borderColor,

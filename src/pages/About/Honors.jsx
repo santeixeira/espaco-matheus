@@ -1,8 +1,6 @@
 import React from "react";
 import Milestone from "@/components/Milestone";
-import { FaBriefcase, FaGraduationCap, FaMedal } from "react-icons/fa";
-import { Button } from "@/components/Button";
-import Link from "next/link";
+import { FaGraduationCap } from "react-icons/fa";
 import Experiencias from "./Experiencias";
 import ExperiencesData from "@/data/ExperiencesData";
 

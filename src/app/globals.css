@@ -171,8 +171,8 @@ video {
 
 /* Range Slider */
 
-[class^="number-slide"],
-[class*=" number-slide"] {
+[className="number-slide"],
+[className=" number-slide"] {
   background: grey;
   display: flex;
   align-items: center;
