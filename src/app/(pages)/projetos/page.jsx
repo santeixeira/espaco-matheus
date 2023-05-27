@@ -1,44 +1,104 @@
 "use client";
 import { Button } from "@/components/Button";
+import Image from "next/image";
 import Slider from "@/components/Slider";
 import SliderData from "@/components/Slider/SliderData";
 import RangeSlider from "@/components/RangeSlider";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import Modal from "@/components/Modal";
 import UploadButton from "@/components/Upload";
+import axios from "axios";
+
+const endpoint = process.env.API_URL_DEV + "/galeria";
 
 const ProjetoUpload = () => {
   const [modal, setModal] = useState(false);
+  const [description, setDescription] = useState("");
+  const [userInfo, setUserInfo] = useState({
+    file: [],
+    filePreview: null,
+  });
+
+  const handleInputChange = (e) => {
+    setUserInfo({
+      ...userInfo,
+      file: e.target.files[0],
+      filePreview: URL.createObjectURL(e.target.files[0]),
+    });
+  };
+
+  const [isSuccess, setSuccess] = useState(null);
+
+  const submit = async () => {
+    const formData = new FormData();
+    formData.append("image", userInfo.file);
+    formData.append("description", description);
+    await axios
+      .post("http://localhost:8080/api/galeria/post", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.warn(res);
+        if (res.data.success === 1) {
+          setSuccess("Image upload successfully");
+        }
+      });
+  };
+
   return (
     <div id="projetos" className="max-w-[1080px] mx-auto h-screen m-[15em]">
-      <div className={"justify-center items-center"}>
+      <div className={"justify-center items-center hidden"}>
         <Modal title={"Modal"}>
-          <div className="flex items-center justify-start">
-            <div className="mx-auto w-full max-w-lg">
-              <form action="https://api.web3forms.com/submit" className="mt-10">
+          <div className="container mr-60">
+            <h3 className="text-white">
+              React Image Upload And Preview Using Node Js -{" "}
+              <span> codeat21.com </span>{" "}
+            </h3>
+
+            <div className="formdesign">
+              {isSuccess !== null ? <h4> {isSuccess} </h4> : null}
+              <div className="form-row">
+                <label className="text-white">Select Image :</label>
                 <input
-                  type="hidden"
-                  name="access_key"
-                  value="YOUR_ACCESS_KEY_HERE"
+                  type="file"
+                  className="form-control"
+                  name="upload_file"
+                  onChange={handleInputChange}
                 />
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="relative z-0 col-span-2">
-                    <textarea
-                      name="message"
-                      rows="5"
-                      className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
-                      placeholder=" "
-                    ></textarea>
-                    <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
-                      Descreva o sentimento da fotografia!
-                    </label>
-                  </div>
-                </div>
-              </form>
+              </div>
+
+              <div className="form-row">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={description}
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                  }}
+                />
+                <button type="submit" className="btn btn-dark" onClick={submit}>
+                  {" "}
+                  Save{" "}
+                </button>
+              </div>
             </div>
+
+            {userInfo.filePreview !== null
+              ? userInfo.filePreview && (
+                  <Image
+                    alt={""}
+                    width={300}
+                    height={300}
+                    className="previewimg"
+                    src={userInfo.filePreview}
+                  />
+                )
+              : null}
           </div>
-          <UploadButton />
         </Modal>
       </div>
       <div className="p-5">

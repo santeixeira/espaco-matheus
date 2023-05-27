@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/Button";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const endpoint = process.env.API_URL_DEV + "/postal";
 
@@ -24,24 +25,13 @@ const Contact = () => {
   let handleSubmit = async (e) => {
     e.preventDefault();
     const { name, phone, email, message } = data;
-    try {
-      let res = await fetch(endpoint + "/create", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          phone: phone,
-          email: email,
-          message: message,
-        }),
+    await axios
+      .post(endpoint + "/create", data, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((res) => {
+        console.warn(res);
       });
-      await res.json();
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   return (
