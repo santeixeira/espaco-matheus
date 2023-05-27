@@ -6,7 +6,7 @@ import axios from "axios";
 const endpoint = process.env.API_URL_DEV + "/postal";
 
 const ServerRender = async (page, size) => {
-  const request = await fetch(endpoint + `?page=${page}&size=${size}`);
+  const request = await fetch(endpoint + `?page=${page}`);
   const data = await request.json();
   const response = JSON.stringify(data, null, 2);
   console.log(response, size, page);

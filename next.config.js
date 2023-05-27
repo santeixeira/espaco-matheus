@@ -7,6 +7,7 @@ const nextConfig = {
       "cdn.openart.ai",
       "marketplace.canva.com",
       "www.canva.com",
+      "127.0.0.1"
     ],
   },
   entry: "",

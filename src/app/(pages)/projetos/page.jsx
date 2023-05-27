@@ -7,7 +7,6 @@ import RangeSlider from "@/components/RangeSlider";
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import Modal from "@/components/Modal";
-import UploadButton from "@/components/Upload";
 import axios from "axios";
 
 const endpoint = process.env.API_URL_DEV + "/galeria";
