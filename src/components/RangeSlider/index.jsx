@@ -1,11 +1,9 @@
 "use client";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import CertificateData from "@/data/CertificateData";
 import Image from "next/image";
-import SliderData from "../Slider/SliderData";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { fetchSlideData } from "@/data/mutations";
 
 const endpoint = process.env.API_URL_DEV + "/galeria";
 
@@ -13,17 +11,13 @@ const RangeSlider = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(endpoint);
-      setImages(response.data);
-    };
-    fetchData();
+    fetchSlideData(setImages);
   }, []);
 
   const [sliderRef] = useKeenSlider({
     loop: true,
     mode: "free",
-    slides: { origin: "center", perView: 3.5, spacing: 12.5 },
+    slides: { origin: "center", perView: 4, spacing: 15 },
     range: {
       min: -5,
       max: 5,
@@ -31,10 +25,10 @@ const RangeSlider = () => {
   });
 
   return (
-    <div ref={sliderRef} className="keen-slider px-10">
+    <div className="flex space-x-4 overflow-x-auto">
       {images.map((e, n) => {
         return (
-          <div className="relative" key={e}>
+          <div className="relative" key={e.id}>
             <Image
               src={endpoint + `/${images[n].id}`}
               width={300}
@@ -44,7 +38,7 @@ const RangeSlider = () => {
                 objectFit: "cover",
                 borderRadius: 4,
               }}
-              className="keen-slider__slide h-[300px] w-[100px]"
+              className=" h-72 w-24"
             />
           </div>
         );

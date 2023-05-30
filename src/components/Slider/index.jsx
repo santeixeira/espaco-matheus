@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SliderData from "@/data/SliderData.js";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { fetchSlideData } from "@/data/mutations";
 
-const Slider = ({ slides }) => {
+const Slider = () => {
   const [current, setCurrent] = useState(0);
-  const length = slides.length;
+  const [images, setImages] = useState([]);
+  const length = images.length;
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -15,12 +17,9 @@ const Slider = ({ slides }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // eslint-disable-next-line react-hooks/rules-of-hooks, react-hooks/exhaustive-deps
   useEffect(() => {
+    fetchSlideData(setImages);
     setTimeout(() => {
       nextSlide();
     }, 5000);
@@ -28,7 +27,7 @@ const Slider = ({ slides }) => {
 
   return (
     <div className="relative flex justify-center m-4">
-      {SliderData.map((slide, index) => {
+      {images.map((e, index) => {
         return (
           <div
             key={index}
@@ -45,7 +44,7 @@ const Slider = ({ slides }) => {
             />
             {index === current && (
               <Image
-                src={slide.image}
+                src={process.env.API_URL_DEV + `/galeria/${images[index].id}`}
                 alt=""
                 width={1440}
                 height={800}

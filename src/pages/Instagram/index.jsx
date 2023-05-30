@@ -2,7 +2,7 @@ import React from "react";
 import InstagramImg from "@/components/SocialMedia";
 import InstagramData from "./InstagramData";
 import { FaInstagram } from "react-icons/fa";
-import { Button } from "@/components/Button";
+import Button from "@/components/Button";
 import Link from "next/link";
 
 const Instagram = () => {

@@ -81,7 +81,7 @@ const Navbar = () => {
               <Link href={"/noticias"}>Notícias</Link>
             </li>
             <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href={"/contatos"}>Contatos</Link>
+              <Link href={"/contato"}>Contatos</Link>
             </li>
           </ul>
         </div>
