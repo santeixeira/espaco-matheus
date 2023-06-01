@@ -8,10 +8,13 @@ import Modal from "@/components/Modal";
 import axios from "axios";
 import { fetchSlideData } from "@/data/mutations";
 import { AiOutlineMenu } from "react-icons/ai";
-AiOutlineMenu;
+import AlbumProject from "@/pages/AlbumProject";
+
+const endpoint = process.env.API_URL_DEV + "/galeria/";
 
 const ProjetoUpload = () => {
   const [modal, setModal] = useState(false);
+  const [album, setAlbum] = useState(false);
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [userInfo, setUserInfo] = useState({
@@ -21,6 +24,10 @@ const ProjetoUpload = () => {
 
   const changeModal = () => {
     setModal((current) => !current);
+  };
+
+  const openAlbum = () => {
+    setAlbum((current) => !current);
   };
 
   const handleInputChange = (e) => {
@@ -154,7 +161,7 @@ const ProjetoUpload = () => {
             icon={<AiOutlineMenu />}
             message={"Abrir álbum completo"}
             alignment={"center"}
-            props={changeModal}
+            props={openAlbum}
           />
         </div>
       </div>
