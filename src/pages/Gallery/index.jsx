@@ -5,7 +5,7 @@ import Slider from "@/components/Slider";
 
 const Gallery = () => {
   return (
-    <div id="gallery" className="max-w-[960px] mx-auto h-screen">
+    <div id="gallery" className="max-w-[960px] mx-auto lg:h-screen">
       <h1>Galeria</h1>
       <p className="text-xl font-thin my-10 text-justify  m-4">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum, quos
@@ -14,7 +14,7 @@ const Gallery = () => {
         deserunt!
       </p>
       <Slider slides={SliderData} />
-      <div className="text-center m-10">
+      <div className="text-center mt-10">
         <Link href={"/projetos"}>
           <Button message={"Projeto Atual"} />
         </Link>

@@ -5,10 +5,10 @@ import Honors from "./Honors";
 const About = () => {
   return (
     <div className=" text-black mx-auto lg:h-[2160px] max-w-[1024px] pt-10">
-      <div className="mx-auto text-center py-8">
+      <div className="mx-auto text-center lg:py-8 ">
         <div className="mx-auto block">
-          <h1 className="text-4xl my-10">Prof. Matheus Carneiro</h1>
-          <p className="pb-4 text-justify">
+          <h1 className="text-4xl lg:my-10">Prof. Matheus Carneiro</h1>
+          <p className="pb-4 px-4 text-justify">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
             voluptate excepturi in illo enim possimus fugiat ab, cum distinctio
             veritatis eligendi blanditiis saepe nulla praesentium harum voluptas
@@ -18,8 +18,8 @@ const About = () => {
             praesentium harum voluptas sunt omnis tenetur!
           </p>
         </div>
-        <div className="mx-auto lg:flex justify-evenly lg:my-2 items-center">
-          <div className=" p-4 max-w-[600px] items-center ">
+        <div className="md:ml-[-4em] lg:flex justify-evenly lg:my-2 items-center overflow-hidden">
+          <div className=" p-4 max-w-[600px] items-center mx-[-6em]">
             <div className="relative block">
               <Image
                 src={"/image1.png"}
@@ -98,21 +98,21 @@ const About = () => {
               </svg>
             </div>
           </div>
-          <div className="flex items-center text-left">
+          <div className="flex items-center text-left lg:ml-20">
             <div className="text-justify text-2xl">
-              <p className="my-4">
+              <p className="my-4 mx-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                 voluptate excepturi in illo enim possimus fugiat ab, cum
                 distinctio veritatis eligendi blanditiis saepe nulla praesentium
                 harum voluptas sunt omnis tenetur!
               </p>
-              <p className="my-4">
+              <p className="my-4 mx-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                 voluptate excepturi in illo enim possimus fugiat ab, cum
                 distinctio veritatis eligendi blanditiis saepe nulla praesentium
                 harum voluptas sunt omnis tenetur!
               </p>
-              <p className="my-4">
+              <p className="my-4 mx-4">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
                 voluptate excepturi in illo enim possimus fugiat ab, cum
                 distinctio veritatis eligendi blanditiis saepe nulla praesentium

@@ -1,48 +1,97 @@
 "use client";
-import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { fetchSlideData } from "@/data/mutations";
+import { useEffect, useState, useRef } from "react";
+import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const endpoint = process.env.API_URL_DEV + "/galeria";
 
-const RangeSlider = () => {
-  const [images, setImages] = useState([]);
+const RangeSlider = ({ images }) => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState();
+  const carouselItemsRef = useRef([]);
 
   useEffect(() => {
-    fetchSlideData(setImages);
-  }, []);
+    if (images && images[0]) {
+      carouselItemsRef.current = carouselItemsRef.current.slice(
+        0,
+        images.length
+      );
 
-  const [sliderRef] = useKeenSlider({
-    loop: true,
-    mode: "free",
-    slides: { origin: "center", perView: 4, spacing: 15 },
-    range: {
-      min: -5,
-      max: 5,
-    },
-  });
+      setSelectedImageIndex(0);
+      setSelectedImage(`${endpoint}/${images[0].id}`);
+    }
+  }, [images]);
+
+  const handleSelectedImageChange = (newIdx) => {
+    if (images && images.length > 0) {
+      setSelectedImage(endpoint + "/" + images[newIdx].id);
+      setSelectedImageIndex(newIdx);
+      if (carouselItemsRef?.current[newIdx]) {
+        carouselItemsRef?.current[newIdx]?.scrollIntoView({
+          block: "nearest",
+          inline: "center",
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
+  const handleRightClick = () => {
+    if (images && images.length >= 0) {
+      let newIdx = selectedImageIndex + 1;
+      if (newIdx == images.length) {
+        newIdx = 0;
+      }
+      handleSelectedImageChange(newIdx);
+    }
+  };
+
+  const handleLeftClick = () => {
+    if (images && images.length > 0) {
+      let newIdx = selectedImageIndex - 1;
+      if (newIdx < 0) {
+        newIdx = images.length - 1;
+      }
+      handleSelectedImageChange(newIdx);
+    }
+  };
 
   return (
-    <div className="flex space-x-4 overflow-x-auto">
-      {images.map((e, n) => {
-        return (
-          <div className="relative" key={e.id}>
-            <Image
-              src={endpoint + `/${images[n].id}`}
-              width={300}
-              height={300}
-              alt={"Test"}
-              style={{
-                objectFit: "cover",
-                borderRadius: 4,
-              }}
-              className=" h-72 w-24"
-            />
-          </div>
-        );
-      })}
+    <div className="carousel-container py-8">
+      <div
+        className="selected-image"
+        style={{ backgroundImage: `url(${selectedImage})` }}
+      />
+      <div className="carousel">
+        <div className="carousel__images">
+          {images &&
+            images.map((image, idx) => (
+              <div
+                onClick={() => handleSelectedImageChange(idx)}
+                style={{
+                  backgroundImage: `url(${endpoint}/${images[idx].id})`,
+                }}
+                key={image.id}
+                className={`hover:mt-4 hover:scale-110 ease-in duration-200 carousel__image ${
+                  selectedImageIndex === idx && "carousel__image-selected"
+                }`}
+                ref={(el) => (carouselItemsRef.current[idx] = el)}
+              />
+            ))}
+        </div>
+        <button
+          className="carousel__button carousel__button-left"
+          onClick={handleLeftClick}
+        >
+          <AiOutlineLeft size={20} />
+        </button>
+        <button
+          className="carousel__button carousel__button-right"
+          onClick={handleRightClick}
+        >
+          <AiOutlineRight size={20} />
+        </button>
+      </div>
     </div>
   );
 };

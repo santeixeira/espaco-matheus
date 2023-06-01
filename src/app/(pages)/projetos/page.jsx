@@ -1,19 +1,18 @@
 "use client";
 import Button from "@/components/Button";
 import Image from "next/image";
-import Slider from "@/components/Slider";
-import SliderData from "@/components/Slider/SliderData";
 import RangeSlider from "@/components/RangeSlider";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import Modal from "@/components/Modal";
 import axios from "axios";
 import { fetchSlideData } from "@/data/mutations";
-
-const endpoint = process.env.API_URL_DEV + "/galeria";
+import { AiOutlineMenu } from "react-icons/ai";
+AiOutlineMenu;
 
 const ProjetoUpload = () => {
   const [modal, setModal] = useState(false);
+  const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [userInfo, setUserInfo] = useState({
     file: [],
@@ -22,7 +21,6 @@ const ProjetoUpload = () => {
 
   const changeModal = () => {
     setModal((current) => !current);
-    console.log(modal);
   };
 
   const handleInputChange = (e) => {
@@ -32,6 +30,10 @@ const ProjetoUpload = () => {
       filePreview: URL.createObjectURL(e.target.files[0]),
     });
   };
+
+  useEffect(() => {
+    fetchSlideData(setImages);
+  }, []);
 
   const [isSuccess, setSuccess] = useState(null);
 
@@ -46,6 +48,7 @@ const ProjetoUpload = () => {
         },
       })
       .then((res) => {
+        window.location.reload(false);
         console.warn(res);
         if (res.data.success === 1) {
           setSuccess("Image upload successfully");
@@ -54,7 +57,7 @@ const ProjetoUpload = () => {
   };
 
   return (
-    <div id="projetos" className="max-w-[1080px] mx-auto py-[15em] bg-black">
+    <div id="projetos" className="max-w-[1080px] mx-auto pt-[15em] bg-black">
       <Modal
         title={"Adicionar imagem"}
         open={modal}
@@ -112,7 +115,8 @@ const ProjetoUpload = () => {
                       alt={""}
                       width={300}
                       height={300}
-                      className="previewimg"
+                      className=" object-cover h-72 w-96"
+                      style={{ borderRadius: 6 }}
                       src={userInfo.filePreview}
                     />
                   )
@@ -142,12 +146,16 @@ const ProjetoUpload = () => {
             props={changeModal}
           />
         </div>
-        <div>
-          <Slider />
-        </div>
-
         <div className="py-4">
-          <RangeSlider />
+          <RangeSlider images={images} />
+        </div>
+        <div className="flex items-center justify-center">
+          <Button
+            icon={<AiOutlineMenu />}
+            message={"Abrir álbum completo"}
+            alignment={"center"}
+            props={changeModal}
+          />
         </div>
       </div>
     </div>

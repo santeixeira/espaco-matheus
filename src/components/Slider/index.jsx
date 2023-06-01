@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import SliderData from "@/data/SliderData.js";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { fetchSlideData } from "@/data/mutations";
 
 const Slider = () => {
@@ -37,7 +36,7 @@ const Slider = () => {
                 : "opacity-0"
             }
           >
-            <FaArrowCircleLeft
+            <FaArrowLeft
               onClick={prevSlide}
               className="absolute top-[50%] left-[30px] text-white/30 cursor-pointer select-none z-[2]"
               size={20}
@@ -48,10 +47,11 @@ const Slider = () => {
                 alt=""
                 width={1440}
                 height={800}
-                style={{ objectFit: "cover", maxHeight: 500, borderRadius: 4 }}
+                style={{ borderRadius: 4 }}
+                className="object-cover max-h-[800px] h-[600px] "
               />
             )}
-            <FaArrowCircleRight
+            <FaArrowRight
               onClick={nextSlide}
               className="absolute top-[50%] right-[30px] text-white/30 cursor-pointer select-none z-[2]"
               size={20}
