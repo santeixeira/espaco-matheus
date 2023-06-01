@@ -22,13 +22,11 @@ const Instagram = () => {
           })}
         </div>
         <div className="my-4">
-          <Link href={"https://www.instagram.com/matheuscarneirobeh/"}>
-            <Button
-              icon={<FaInstagram />}
-              message={"@matheuscarneirobeh"}
-              borderColor={"black"}
-            />
-          </Link>
+          <Button
+            icon={<FaInstagram />}
+            message={"@matheuscarneirobeh"}
+            borderColor={"black"}
+          />
         </div>
       </div>
     </div>
