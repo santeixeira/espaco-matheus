@@ -1,9 +1,17 @@
-import SliderData from "@/data/SliderData.js";
+"use client";
 import Button from "@/components/Button";
 import Link from "next/link";
 import Slider from "@/components/Slider";
+import { useEffect, useState } from "react";
+import { fetchSlideData } from "@/data/mutations";
 
 const Gallery = () => {
+  const [image, setImages] = useState([]);
+
+  useEffect(() => {
+    fetchSlideData(setImages)
+  }, [image]);
+
   return (
     <div id="gallery" className="max-w-[960px] mx-auto mb-10">
       <h1>Galeria</h1>
@@ -13,7 +21,7 @@ const Gallery = () => {
         optio quo totam accusamus nemo ducimus repellat enim ratione molestiae
         deserunt!
       </p>
-      <Slider slides={SliderData} />
+      <Slider slides={image} />
       <div className="text-center my-10">
         <Link href={"/projetos"}>
           <Button message={"Projeto Atual"} />
