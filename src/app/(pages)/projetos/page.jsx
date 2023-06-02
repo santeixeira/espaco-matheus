@@ -10,7 +10,7 @@ import { fetchSlideData } from "@/data/mutations";
 import { AiOutlineMenu } from "react-icons/ai";
 import AlbumProject from "@/pages/AlbumProject";
 
-const endpoint = process.env.API_URL_DEV + "/galeria/";
+const endpoint = process.env.API_URL_DEV + "/galeria/post";
 
 const ProjetoUpload = () => {
   const [modal, setModal] = useState(false);
@@ -49,7 +49,7 @@ const ProjetoUpload = () => {
     formData.append("image", userInfo.file);
     formData.append("description", description);
     await axios
-      .post("http://localhost:8080/api/galeria/post", formData, {
+      .post(endpoint, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
