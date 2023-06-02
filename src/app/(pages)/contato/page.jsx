@@ -27,17 +27,17 @@ const Contato = () => {
           <FaCheckCircle size={50} className="text-green-400 mx-auto my-8" />
         </div>
       </Modal>
-      <div className="w-[1080px] mx-auto">
+      <div className="lg:w-[1080px] mx-auto overflow-hidden">
         <div className="h-full flex ">
           <div id="contatos" className="mt-[10em] mb-[3em] border-white">
-            <h1 className="text-left text-5xl px-0">Fale Comigo.</h1>
-            <p className="text-xl font-thin my-4 text-justify">
+            <h1 className="lg:text-left text-5xl px-0">Fale Comigo.</h1>
+            <p className=" text-xl font-thin my-4 text-justify mx-5">
               Adoraria trabalhar com você, aqui está os meios de entrar em
               contato!
             </p>
           </div>
         </div>
-        <div className="lg:flex justify-center columns-2 gap-4 mx-auto my-4">
+        <div className="lg:flex inline-block lg:justify-center lg:columns-2 lg:gap-4 mx-auto my-4">
           <div className="lg:w-2/6">
             <h1 className="text-2xl">Redes Sociais</h1>
             <div className="flex items-center justify-between mb-8">
@@ -68,22 +68,22 @@ const Contato = () => {
                 </Link>
               </div>
             </div>
-            <div className="my-4">
+            <div className="my-4 text-center lg:text-left">
               <h3 className="text-2xl">Fortaleza</h3>
               <h4>622 3rd Avenue, 27th floor</h4>
               <h4>New York, NY 10017</h4>
               <h4>Brasil</h4>
             </div>
-            <div className="my-4">
+            <div className="my-4 text-center lg:text-left">
               <h3 className="text-2xl">Email</h3>
               <h4>hellony@performanceart.com</h4>
             </div>
-            <div className="my-4">
+            <div className="my-4 text-center lg:text-left">
               <h3 className="text-2xl">Telefone</h3>
               <h4>+55 (85) 99999-9999</h4>
             </div>
           </div>
-          <div className="lg:w-4/6">
+          <div className="lg:w-4/6 lg:mx-auto mx-5">
             <Contact onSubmit={changeModal} />
           </div>
         </div>

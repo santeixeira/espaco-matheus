@@ -6,7 +6,7 @@ const Milestone = ({ icon, description, institute, date }) => {
   return (
     <Link href={"/#"} className="hover:scale-110 ease-in duration-100">
       <div
-        className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-neutral-100 via-stone-400 to-[#DEC8A6] flex justify-evenly items-center w-full text-white pr-2 drop-shadow-xl"
+        className="lg:flex lg:my-0 my-4 bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-neutral-100 via-stone-400 to-[#DEC8A6] flex justify-evenly items-center w-full text-white pr-2 drop-shadow-xl"
         style={{ borderRadius: 6 }}
       >
         <div className="flex text-black w-[30%] items-center justify-center">

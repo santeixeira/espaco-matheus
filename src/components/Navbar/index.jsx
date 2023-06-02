@@ -41,7 +41,7 @@ const Navbar = () => {
         <ul style={{ textColor: `${textColor}` }} className="hidden sm:flex">
           {navItems.map((value, index) => {
             return (
-              <li className="p-4 hover:scale-110 hover:border-bottom ease-in duration-150" key={index}>
+              <li className="lg:p-4 hover:scale-110 hover:border-bottom ease-in duration-150" key={index}>
                 <Link href={value.link}>{value.item}</Link>
               </li>
             );
@@ -69,10 +69,10 @@ const Navbar = () => {
         >
           <ul>
             <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href={"/pagina+inicial"}>Página Inicial</Link>
+              <Link href={"/"}>Página Inicial</Link>
             </li>
             <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href={"/sobre+mim"}>Sobre Mim</Link>
+              <Link href={"/sobre"}>Sobre Mim</Link>
             </li>
             <li className="p-4 text-4xl hover:text-gray-500">
               <Link href={"/projetos"}>Projetos</Link>

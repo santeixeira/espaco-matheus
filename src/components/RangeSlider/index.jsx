@@ -57,9 +57,9 @@ const RangeSlider = ({ images }) => {
   };
 
   return (
-    <div className="carousel-container py-8">
+    <div className="py-8">
       <div
-        className="selected-image"
+        className="selected-image h-72"
         style={{ backgroundImage: `url(${selectedImage})` }}
       />
       <div className="carousel">

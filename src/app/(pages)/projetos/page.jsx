@@ -153,7 +153,7 @@ const ProjetoUpload = () => {
             props={changeModal}
           />
         </div>
-        <div className="py-4">
+        <div className="">
           <RangeSlider images={images} />
         </div>
         <div className="flex items-center justify-center">

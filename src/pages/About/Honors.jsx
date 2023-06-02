@@ -11,7 +11,7 @@ function Honors() {
       style={{ borderRadius: 6 }}
     >
       <h1 className="lg:my-10">Formações</h1>
-      <div className="lg:grid lg:grid-cols-2 gap-8 justify-center items-center mx-4">
+      <div className=" lg:grid lg:grid-cols-2 gap-8 justify-center items-center mx-4">
         <Milestone
           icon={<FaGraduationCap size={40} />}
           description={"Graduação Licenciatura em Dança"}

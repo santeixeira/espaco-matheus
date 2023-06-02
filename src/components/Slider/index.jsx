@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { fetchSlideData } from "@/data/mutations";
 
+const endpoint = process.env.API_URL_DEV + "/galeria"
+
 const Slider = () => {
   const [current, setCurrent] = useState(0);
   const [images, setImages] = useState([]);
@@ -43,7 +45,7 @@ const Slider = () => {
             />
             {index === current && (
               <Image
-                src={process.env.API_URL_DEV + `/galeria/${images[index].id}`}
+                src={ endpoint + `/${images[index].id}`}
                 alt=""
                 width={1440}
                 height={800}
