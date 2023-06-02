@@ -5,7 +5,7 @@ import { BiCalendar } from "react-icons/bi";
 const Card = ({ image, description, date }) => {
   return (
     <div
-      className="bg-gradient-to-r from-neutral-600 to-neutral-800 flex justify-between items-center gap-4 w-[500px] text-white pr-2 mb-4 drop-shadow"
+      className="bg-gradient-to-r from-neutral-600 to-neutral-800 flex justify-between items-center gap-4 lg:w-[500px] text-white pr-2 mb-4 drop-shadow"
       style={{ borderRadius: 6 }}
     >
       <Image
@@ -14,7 +14,7 @@ const Card = ({ image, description, date }) => {
         height={400}
         alt=""
         style={{
-          objectFit: "",
+          objectFit: "cover",
           width: 150,
           height: 150,
           borderTopLeftRadius: 6,

@@ -29,6 +29,7 @@ const Slider = () => {
   return (
     <div className="relative flex justify-center m-4">
       {images.map((e, index) => {
+        console.log(endpoint + `/${images[index].id}`)
         return (
           <div
             key={index}

@@ -55,7 +55,7 @@ const ProjetoUpload = () => {
         },
       })
       .then((res) => {
-        window.location.reload(false);
+        setModal(false);
         console.warn(res);
         if (res.data.success === 1) {
           setSuccess("Image upload successfully");
@@ -70,13 +70,31 @@ const ProjetoUpload = () => {
         open={modal}
         close={() => setModal(false)}
       >
-        <h3 className="text-white text-xl text-justify">
-          Colabore com este projeto ao adicionar uma fotografia da performance,
-          esta imagem será avaliada e postada no mural!
+        <h3
+          className={
+            userInfo.filePreview ? "hidden" : "text-white text-xl text-justify"
+          }
+        >
+          Colabore com este projeto ao adicionar uma fotografia da performance!
         </h3>
 
+        <h4
+          className={
+            userInfo.filePreview
+              ? "text-center text-2xl text-white mt-4"
+              : "hidden"
+          }
+        >
+          {" "}
+          {description}
+        </h4>
+
         <div className="w-full my-4">
-          <div className="relative z-0 col-span-2">
+          <div
+            className={
+              userInfo.filePreview ? "hidden" : "relative z-0 col-span-2"
+            }
+          >
             <textarea
               name="message"
               rows="2"
@@ -95,7 +113,13 @@ const ProjetoUpload = () => {
 
           <div className="formdesign">
             {isSuccess !== null ? <h4> {isSuccess} </h4> : null}
-            <div className="flex w-full items-center justify-center bg-grey-lighter">
+            <div
+              className={
+                userInfo.filePreview
+                  ? "hidden"
+                  : "flex w-full items-center justify-center bg-grey-lighter"
+              }
+            >
               <label className="w-64 flex border-gray-500 bg-black text-white flex-col items-center my-8 px-2 py-4 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-transparent hover:text-black hover:bg-white">
                 <svg
                   className="w-8 h-8"
@@ -130,7 +154,11 @@ const ProjetoUpload = () => {
                 : null}
             </div>
 
-            <div className="flex justify-center">
+            <div
+              className={
+                userInfo.filePreview ? "flex justify-center" : "hidden"
+              }
+            >
               <Button props={submit} message={"Salvar"} color={"white"} />
             </div>
           </div>

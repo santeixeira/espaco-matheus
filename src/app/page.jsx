@@ -5,7 +5,7 @@ import Instagram from "@/pages/Instagram";
 
 export default function Home() {
   return (
-    <div className=" overflow-hidden ">
+    <div className="overflow-hidden">
       <Hero
         heading={"Espaço Matheus Carneiro"}
         message={

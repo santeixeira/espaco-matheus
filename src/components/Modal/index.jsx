@@ -11,7 +11,7 @@ const Modal = ({ title, children, open, close }) => {
           : "absolute z-[-10] justify-center items-center opacity-0 ease-in duration-200"
       }
     >
-      <div className="top-0 left-0 right-0 bottom-0 bg-black/75 z-50 fixed">
+      <div className="top-0 left-0 right-0 bottom-0 bg-black/75 z-50 fixed ">
         <div
           className="top-[60px] fixed backdrop-opacity-95 backdrop-blur bg-gray-700/80 max-w-[540px] max-h-[980px] mx-auto inset-x-0 text-black z-10 overflow-y-auto"
           style={{ borderRadius: 4 }}
