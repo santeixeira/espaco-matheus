@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   images: {
     domains: [
       "images.pexels.com",
@@ -10,7 +11,6 @@ const nextConfig = {
       "espaco-matheus-api-production.up.railway.app"
     ],
   },
-  entry: "",
   env: {
     API_URL_DEV: process.env.API_URL_DEV,
   },
