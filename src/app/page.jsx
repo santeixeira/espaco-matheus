@@ -1,7 +1,6 @@
 import Hero from "@/components/Hero";
 import News from "@/pages/Work";
 import Gallery from "@/pages/Gallery";
-import Instagram from "@/pages/Instagram";
 
 export default function Home() {
   return (

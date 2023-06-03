@@ -1,19 +1,45 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+import { useEffect } from "react";
+import ExperiencesData from "@/data/ExperiencesData";
+import ExperienciasComponents from "@/components/Experiences";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-const Experiencias = ({ date, empresa, cargo, descricao, link }) => {
+const Experiencias = () => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    inView ? control.start("visible") : control.start("hidden");
+  }, [control, inView]);
+
+  const variant = {
+    visible: { opacity: 1, x: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0, x: 200 },
+  };
+
   return (
-    <div className=" lg:flex justify-between items-start gap-12">
-      <div className="lg:w-1/6">
-        <h3 className="text-xl py-2">{date}</h3>
-      </div>
-      <div className="w-5/6 lg:text-left mx-auto">
-        <Link href={`${link}`}>
-          <h3 className="text-2xl hover:scale-105 ease-in duration-100">{empresa}</h3>
-        </Link>
-        <p className="text-neutral-700 py-2">{cargo}</p>
-        <h4 className="text-neutral-700 mt-2 mb-6 text-justify">{descricao}</h4>
-      </div>
+    <div>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        variants={variant}
+        animate={control}
+      >
+        <h1 className="pb-10">Experiências</h1>
+        {ExperiencesData.map((exp, index) => {
+          return (
+            <ExperienciasComponents
+              date={exp.dates}
+              empresa={exp.empresa}
+              cargo={exp.cargo}
+              descricao={exp.descricao}
+              link={exp.link}
+              key={index}
+            />
+          );
+        })}
+      </motion.div>
     </div>
   );
 };
