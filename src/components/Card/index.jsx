@@ -22,7 +22,7 @@ const Card = ({ image, title, date }) => {
         }}
       />
       <div className="inline-block pt-4 mx-4 w-full">
-        <h3 className="text-thin text-justify mb-4 border-b-2 border-gray-500">
+        <h3 className="text-thin text-justify mb-4 border-b-[1px] border-gray-500">
           {title}
         </h3>
         <div className="flex gap-2 items-center text-gray-300">

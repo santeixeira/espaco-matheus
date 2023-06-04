@@ -6,7 +6,7 @@ const WorkData = [
     title:
       "Black Elevation Map Recognized by Fast Company’s 2023 World-Changing Ideas Award",
     description:
-      "Das danças urbanas todas é aquela mais introvertida, você não dança para querer mostrar movimentos incríveis e bonitos, é lúdico prá você",
+      "We are thrilled that the Black Elevation Map has been named to Fast Company’s 2023 list of World Changing Ideas. Data truly can change the world. Check out the entire list of World-Changing Ideas",
     date: "10 dezembro 2022",
   },
   {

@@ -39,7 +39,7 @@ const News = () => {
           cativante para os espectadores.
         </p>
         <div className="lg:flex justify-between gap-6 mx-4">
-          <Link href={"/"}>
+          <Link href={"/noticias/" + 0}>
             <div className="items-center hover:scale-105 ease-in duration-200 pb-4">
               <Image
                 src={WorkData[0].image}
@@ -53,7 +53,7 @@ const News = () => {
                   alignItems: "center",
                 }}
               />
-              <p className="text-thin text-justify my-4 hover:font-medium ease-in duration-150 border-b-2 border-gray-500">
+              <p className="text-thin text-justify my-4 hover:font-medium ease-in duration-150 border-b-[1px] border-gray-500">
                 {WorkData[0].title}
               </p>
 
@@ -70,8 +70,8 @@ const News = () => {
                 <div key={index}>
                   <Link
                     href={
-                      "/noticias/" +
-                      card.title.replace(/\s+/g, "-").toLowerCase()
+                      "/noticias/" + index
+                      // card.title.replace(/\s+/g, "-").toLowerCase()
                     }
                   >
                     <Card
