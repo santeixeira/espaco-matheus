@@ -40,7 +40,7 @@ const Gallery = () => {
         </p>
         <Slider slides={image} />
         <div className="text-center my-10">
-          <Link href={"/projetos"}>
+          <Link href={"/projetos/espaco-icosaedrico"}>
             <Button message={"Projeto Atual"} />
           </Link>
         </div>
