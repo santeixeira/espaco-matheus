@@ -1,5 +1,6 @@
+
 import Hero from "@/components/Hero";
-import News from "@/pages/Work";
+import News from "@/pages/News";
 import Gallery from "@/pages/Gallery";
 
 export default function Home() {
@@ -12,7 +13,7 @@ export default function Home() {
         }
       />
       <div className="mb-[2.5em]">
-        <Gallery />
+          <Gallery />
       </div>
       <div className="bg-fixed">
         <News />

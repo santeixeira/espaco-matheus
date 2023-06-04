@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BiCalendar } from "react-icons/bi";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
-const Card = ({ image, description, date }) => {
+const Card = ({ image, title, date }) => {
   return (
     <div
-      className="bg-gradient-to-r from-neutral-600 to-neutral-800 flex justify-between items-center gap-4 lg:w-[500px] text-white pr-2 mb-4 drop-shadow"
+      className="hover:scale-105 ease-in duration-200 bg-gradient-to-r from-neutral-600 to-neutral-800 flex justify-start gap-4 lg:w-[500px] text-white pr-2 mb-4 drop-shadow"
       style={{ borderRadius: 6 }}
     >
       <Image
@@ -21,14 +21,12 @@ const Card = ({ image, description, date }) => {
           borderBottomLeftRadius: 6,
         }}
       />
-      <div className="inline-block mx-4">
-        <Link href={"/#"}>
-          <h3 className="text-thin text-justify mb-4 hover:font-medium  ease-in duration-100">
-            {description}
-          </h3>
-        </Link>
-        <div className="flex gap-1 items-center text-gray-300">
-          <BiCalendar />
+      <div className="inline-block pt-4 mx-4 w-full">
+        <h3 className="text-thin text-justify mb-4 border-b-2 border-gray-500">
+          {title}
+        </h3>
+        <div className="flex gap-2 items-center text-gray-300">
+          <AiOutlineClockCircle />
           {date}
         </div>
       </div>
