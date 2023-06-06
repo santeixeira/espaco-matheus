@@ -1,6 +1,5 @@
 import React from "react";
 import DefaultPage from "@/pages/Default";
-import Button from "@/components/Button";
 import Link from "next/link";
 
 const page = () => {
@@ -12,7 +11,7 @@ const page = () => {
       >
         <Link href={"/projetos/espaco-icosaedrico"}>
           <div
-            className="bg-white/80 mt-10 px-8 h-[200px] text-black hover:scale-105 duration-200 ease-in"
+            className="bg-white/80 mt-10 px-8 pb-10 lg:h-[200px] text-black hover:scale-105 duration-200 ease-in"
             style={{ borderRadius: 6 }}
           >
             <h1 className="text-xl">Espaço Icosaédrico</h1>

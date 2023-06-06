@@ -1,19 +1,21 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import WorkData from "@/data/WorkData";
 import Link from "next/link";
 import Button from "@/components/Button";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import Card from "@/components/Card";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { fetchAllNews } from "@/data/mutations";
 
 const News = () => {
   const control = useAnimation();
   const [ref, inView] = useInView();
+  const [news, setNews] = useState([]);
 
   useEffect(() => {
+    fetchAllNews(setNews);
     inView ? control.start("visible") : control.start("hidden");
   }, [control, inView]);
 
@@ -39,10 +41,12 @@ const News = () => {
           cativante para os espectadores.
         </p>
         <div className="lg:flex justify-between gap-6 mx-4">
-          <Link href={"/noticias/" + 0}>
+          <Link
+            href={"/noticias/" + news[0]?.title.replace(encodeURIComponent)}
+          >
             <div className="items-center hover:scale-105 ease-in duration-200 pb-4">
               <Image
-                src={WorkData[0].image}
+                src={news[0]?.image}
                 width={500}
                 height={400}
                 alt=""
@@ -54,35 +58,37 @@ const News = () => {
                 }}
               />
               <p className="text-thin text-justify my-4 hover:font-medium ease-in duration-150 border-b-[1px] border-gray-500">
-                {WorkData[0].title}
+                {news[0]?.title}
               </p>
 
               <div className="flex gap-1 items-center text-gray-500">
                 <AiOutlineClockCircle />
-                {WorkData[0].date}
+                {news[0]?.date.substring(0, 10)}
               </div>
             </div>
           </Link>
 
           <div className="items-center mx-auto">
-            {WorkData.map((card, index) => {
-              return (
-                <div key={index}>
-                  <Link
-                    href={
-                      "/noticias/" + index
-                      // card.title.replace(/\s+/g, "-").toLowerCase()
-                    }
-                  >
-                    <Card
-                      image={card.image}
-                      title={card.title}
-                      date={card.date}
-                    />
-                  </Link>
-                </div>
-              );
-            }).filter((n) => n.key > 0 && n.key < 4)}
+            {news
+              .map((card, index) => {
+                return (
+                  <div key={index}>
+                    <Link
+                      href={
+                        "/noticias/" + card?.title.replace(encodeURIComponent)
+                        // card.title.replace(/\s+/g, "-").toLowerCase()
+                      }
+                    >
+                      <Card
+                        image={card?.image}
+                        title={card?.title}
+                        date={card?.date.substring(0, 10)}
+                      />
+                    </Link>
+                  </div>
+                );
+              })
+              .filter((n) => n.key > 0 && n.key < 4)}
           </div>
         </div>
         <div className="flex mx-auto item-center justify-center pt-8">

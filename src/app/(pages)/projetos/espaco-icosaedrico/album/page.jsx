@@ -13,7 +13,7 @@ const Page = () => {
   }, []);
 
   return (
-    <main className="pt-[10em]">
+    <main className="max-w-[1080px] pt-[10em] mx-auto">
       <div className="lg:grid grid-cols-2 gap-10 grid-flow-row">
         {images.map((e, index) => {
           return (

@@ -7,7 +7,9 @@ const nextConfig = {
       "cdn.openart.ai",
       "marketplace.canva.com",
       "www.canva.com",
-      "matheuscarneiro.up.railway.app"
+      "matheuscarneiro.up.railway.app",
+      "localhost",
+      "i.imgur.com"
     ],
   },
   env: {
