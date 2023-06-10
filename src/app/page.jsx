@@ -1,7 +1,7 @@
-
 import Hero from "@/components/Hero";
 import News from "@/pages/News";
 import Gallery from "@/pages/Gallery";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -13,10 +13,12 @@ export default function Home() {
         }
       />
       <div className="mb-[2.5em]">
-          <Gallery />
+        <Gallery />
       </div>
       <div className="bg-fixed">
-        <News />
+        <Suspense fallback={<p>Loading</p>}>
+          <News />
+        </Suspense>
       </div>
     </div>
   );

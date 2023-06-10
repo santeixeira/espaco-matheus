@@ -15,7 +15,6 @@ const Contato = () => {
   const [modal, setModal] = useState(false);
   const changeModal = (e) => {
     setModal((current) => !current);
-    console.log(modal);
   };
   return (
     <>
@@ -84,7 +83,7 @@ const Contato = () => {
             </div>
           </div>
           <div className="lg:w-4/6 lg:mx-auto mx-5">
-            <Contact onSubmit={changeModal} />
+            <Contact change={changeModal} />
           </div>
         </div>
       </div>

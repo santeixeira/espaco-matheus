@@ -1,19 +1,11 @@
 "use client";
 import Button from "@/components/Button";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const endpoint = process.env.API_URL_DEV + "/postal";
 
-// const ServerRender = async (page, size) => {
-//   const request = await fetch(endpoint + `?page=${page}`);
-//   const data = await request.json();
-//   const response = JSON.stringify(data, null, 2);
-//   console.log(response, size, page);
-//   return response;
-// };
-
-const Contact = (onSubmit) => {
+const Contact = ({change}) => {
   const [data, setData] = useState({});
 
   const handleChange = (e) => {
@@ -109,7 +101,7 @@ const Contact = (onSubmit) => {
               </div>
             </div>
             <div className="flex justify-center my-4">
-              <Button message={"Enviar"} bg={"white"} color={"black"} />
+              <Button message={"Enviar"} bg={"white"} color={"black"} props={change} />
             </div>
           </form>
         </div>

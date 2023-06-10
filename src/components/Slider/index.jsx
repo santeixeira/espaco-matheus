@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { fetchSlideData } from "@/data/mutations";
 
-const endpoint = process.env.API_URL_DEV + "/galeria"
+const endpoint = process.env.API_URL_DEV + "/galeria";
 
 const Slider = () => {
   const [current, setCurrent] = useState(0);
@@ -18,13 +18,9 @@ const Slider = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks, react-hooks/exhaustive-deps
   useEffect(() => {
     fetchSlideData(setImages);
-    setTimeout(() => {
-      nextSlide();
-    }, 5000);
-  });
+  }, []);
 
   return (
     <div className="relative flex justify-center m-4">
@@ -45,7 +41,7 @@ const Slider = () => {
             />
             {index === current && (
               <Image
-                src={ endpoint + `/${images[index].id}`}
+                src={endpoint + `/${images[index].id}`}
                 alt=""
                 width={1440}
                 height={800}

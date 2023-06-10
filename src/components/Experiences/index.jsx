@@ -3,9 +3,9 @@ import React from "react";
 
 const ExperienciasComponents = ({ date, empresa, cargo, descricao, link }) => {
   return (
-    <div className=" lg:flex justify-between items-start gap-12">
+    <div className=" lg:flex justify-between items-start gap-12 lg:text-left text-center">
       <div className="lg:w-1/6">
-        <h3 className="text-xl py-2">{date}</h3>
+        <h3 className="text-xl py-2 ">{date}</h3>
       </div>
       <div className="w-5/6 lg:text-left mx-auto">
         <Link href={`${link}`}>
