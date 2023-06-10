@@ -7,7 +7,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import Card from "@/components/Card";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { fetchAllNews } from "@/data/mutations";
+import { fetchAllNews, getDate } from "@/data/mutations";
 
 const News = () => {
   const control = useAnimation();
@@ -17,7 +17,7 @@ const News = () => {
   useEffect(() => {
     fetchAllNews(setNews);
     inView ? control.start("visible") : control.start("hidden");
-  }, [control, inView]);
+  }, [control, inView, news]);
 
   const boxVariant = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
@@ -42,13 +42,17 @@ const News = () => {
         </p>
         <div className="lg:flex justify-between gap-6 mx-4">
           <Link
-            href={"/noticias/" + news[0]?.title.replace(encodeURIComponent)}
+            href={
+              "/noticias/" + news[0]?.title.replace(/\s+/g, "-").toLowerCase()
+            }
+            onClick={() => sessionStorage.setItem("_news", news[0]?.id)}
           >
             <div className="items-center hover:scale-105 ease-in duration-200 pb-4">
               <Image
                 src={news[0]?.image}
-                width={500}
-                height={400}
+                width={1000}
+                height={1000}
+                loading="lazy"
                 alt=""
                 style={{
                   objectFit: "cover",
@@ -63,7 +67,7 @@ const News = () => {
 
               <div className="flex gap-1 items-center text-gray-500">
                 <AiOutlineClockCircle />
-                {news[0]?.date.substring(0, 10)}
+                {getDate(news[0]?.date)}
               </div>
             </div>
           </Link>
@@ -75,9 +79,10 @@ const News = () => {
                   <div key={index}>
                     <Link
                       href={
-                        "/noticias/" + card?.title.replace(encodeURIComponent)
-                        // card.title.replace(/\s+/g, "-").toLowerCase()
+                        "/noticias/" +
+                        card.title.replace(/\s+/g, "-").toLowerCase()
                       }
+                      onClick={() => sessionStorage.setItem("_news", card?.id)}
                     >
                       <Card
                         image={card?.image}

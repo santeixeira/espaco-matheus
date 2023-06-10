@@ -42,8 +42,8 @@ const Navbar = () => {
           {navItems.map((value, index) => {
             return (
               <li
-                className="lg:p-4 hover:scale-110 hover:bg-white/20 ease-in duration-150  "
-                style={{ borderRadius : 6}}
+                className="lg:p-4 hover:scale-105 hover:bg-white/20 ease-in duration-150  "
+                style={{ borderRadius: 6 }}
                 key={index}
               >
                 <Link href={value.link}>{value.item}</Link>

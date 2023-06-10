@@ -64,7 +64,7 @@ const ProjetoUpload = () => {
   };
 
   return (
-    <div id="projetos" className="max-w-[1080px] mx-auto pt-[15em] bg-black">
+    <div id="projetos" className="max-w-[1080px] mx-auto pt-[15em]">
       <Modal
         title={"Adicionar imagem"}
         open={modal}

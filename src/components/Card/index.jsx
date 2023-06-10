@@ -1,3 +1,4 @@
+import { getDate } from "@/data/mutations";
 import Image from "next/image";
 import Link from "next/link";
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -27,7 +28,7 @@ const Card = ({ image, title, date }) => {
         </h3>
         <div className="flex gap-2 items-center text-gray-300">
           <AiOutlineClockCircle />
-          {date}
+          {getDate(date)}
         </div>
       </div>
     </div>
